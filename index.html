@@ -130,7 +130,7 @@
             greeting: 'Greetings, Sir <span class="crown">👑</span> Mr. Composure!',
             color: '#2c3e50',
             effect: function() {
-                createConfetti('#3498db');
+                createking('#3498db');
                 updateDashboard('Zuriel');
             }
         },
@@ -370,7 +370,38 @@
       }
     }
 
+function createking() {
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          const king = document.createElement('div');
+          king.innerHTML = '👑 👑 👑';
+          king.style.position = 'fixed';
+          king.style.fontSize = `${Math.random() * 20 + 15}px`;
+          king.style.left = `${Math.random() * 100}%`;
+          king.style.top = `${Math.random() * 100}%`;
+          king.style.opacity = '0';
+          king.style.transform = 'translateY(0) scale(0)';
+          king.style.animation = `laughing ${Math.random() * 2 + 1}s infinite`;
+          king.style.zIndex = '1000';
+          document.body.appendChild(king);
+          
+          setTimeout(() => {
+            king.style.transition = 'all 1s ease-out';
+            king.style.opacity = '0.8';
+            king.style.transform = 'translateY(-20px) scale(1)';
+          }, 50);
+          
+          setTimeout(() => {
+            king.style.opacity = '0';
+            setTimeout(() => {
+               king .remove();
+            }, 1000);
+          }, 2000);
+        }, i * 300);
+      }
+    }
 
+    
     function createlaughs() {
       for (let i = 0; i < 10; i++) {
         setTimeout(() => {
